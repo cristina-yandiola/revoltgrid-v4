@@ -53,6 +53,10 @@ export const footerNavigationData: FooterData = {
 					subCategoryLink: '/gridscore'
 				},
 				{
+					subCategory: 'FCA Analysis',
+					subCategoryLink: '/fca-analysis'
+				},
+				{
 					subCategory: 'Advisory',
 					subCategoryLink: '/grid-strategy'
 				},

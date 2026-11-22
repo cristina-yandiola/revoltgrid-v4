@@ -1,0 +1,51 @@
+---
+// Start from your question — need-based routing (replaces pitch-first framing)
+import Section from '../../ui/Section.astro'
+import Eyebrow from '../../ui/Eyebrow.astro'
+import Button from '../../ui/Button.astro'
+
+const needs = [
+	{
+		q: 'Where should we connect?',
+		a: 'Screen and compare connection opportunities across Germany with GridScore™ — or commission a scoped siting study for your search area.',
+		cta: 'Explore GridScore',
+		link: '/gridscore'
+	},
+	{
+		q: 'What do these connection terms mean for the project?',
+		a: 'Independent assessment of your grid connection offer or FCA draft — what limits, ramps and penalties do to revenues and bankability.',
+		cta: 'Request an FCA analysis',
+		link: '/fca-analysis'
+	},
+	{
+		q: 'What would a battery change?',
+		a: 'Project-specific study of how co-location affects connection requirements, curtailment exposure and operations — for hybrid and data-centre projects.',
+		cta: 'Discuss a study',
+		link: '/grid-strategy'
+	}
+]
+---
+
+<Section id="start-from-your-question" mode="light" surfaceColor>
+	<div class="mx-auto max-w-5xl">
+		<Eyebrow title="Start from your question" />
+		<h2 class="mb-10 font-headings text-3xl font-semibold leading-tight text-neutral-700 lg:text-4xl">
+			What do you need to know about your grid connection?
+		</h2>
+		<div class="divide-y divide-neutral-200 border-t border-neutral-200">
+			{
+				needs.map((n) => (
+					<div class="grid items-center gap-4 py-8 md:grid-cols-[1.1fr_1fr_auto] md:gap-8">
+						<h3 class="font-headings text-xl font-semibold text-neutral-800">{n.q}</h3>
+						<p class="text-base leading-relaxed text-neutral-600">{n.a}</p>
+						<div>
+							<Button size="base" link={n.link} style="accent-light">
+								{n.cta}
+							</Button>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</Section>

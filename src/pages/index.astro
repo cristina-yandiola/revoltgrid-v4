@@ -4,7 +4,9 @@
 import Layout from '../layouts/Layout.astro'
 // - Blocks
 import Hero from '../components/blocks/homepage/Hero.astro'
-import TwoWays from '../components/blocks/homepage/TwoWays.astro'
+import NeedRows from '../components/blocks/homepage/NeedRows.astro'
+import FcaBand from '../components/blocks/homepage/FcaBand.astro'
+import Applications from '../components/blocks/homepage/Applications.astro'
 import WhyGridData from '../components/blocks/homepage/WhyGridData.astro'
 import BlogStrip from '../components/blocks/homepage/BlogStrip.astro'
 import CTA from '../components/blocks/homepage/CTA.astro'
@@ -12,15 +14,17 @@ import CTA from '../components/blocks/homepage/CTA.astro'
 // Content
 // - SEO
 const SEO = {
-	title: 'Revolt Energy | Grid intelligence & advisory for BESS in Germany',
+	title: 'Revolt Energy | Find and assess grid connections in Germany',
 	description:
-		'Revolt combines GridScore™ grid intelligence software and specialist advisory to help BESS developers and investors in Germany find better grid connection opportunities, faster.'
+		'Grid intelligence and independent advisory for battery storage, renewables and data centres in Germany: GridScore™ connection screening, FCA analysis and grid studies.'
 }
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
 	<Hero />
-	<TwoWays />
+	<NeedRows />
+	<FcaBand />
+	<Applications />
 	<WhyGridData />
 	<BlogStrip />
 	<CTA

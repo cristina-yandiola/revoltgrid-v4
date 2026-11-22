@@ -1,0 +1,58 @@
+---
+// Who we work with — four applications framed by the client's own question
+import Section from '../../ui/Section.astro'
+import Eyebrow from '../../ui/Eyebrow.astro'
+
+const apps = [
+	{
+		tag: 'Standalone BESS',
+		title: 'Battery storage',
+		q: '“Where should we connect — and how would the offered terms affect dispatch and revenues?”'
+	},
+	{
+		tag: 'Renewables + BESS',
+		title: 'Hybrid projects',
+		q: '“How much could a battery change export peaks or curtailment under the proposed connection limit?”'
+	},
+	{
+		tag: 'Data centres',
+		title: 'Large loads',
+		q: '“Which sites warrant deeper investigation, given import needs, connection timelines and load ramp-up?”'
+	},
+	{
+		tag: 'Data centres + BESS',
+		title: 'Load + storage',
+		q: '“Could storage reduce peak import or support a phased connection — and how much firm capacity do we still need?”'
+	}
+]
+---
+
+<Section id="applications" mode="light" classes="!bg-white">
+	<div class="mx-auto max-w-5xl">
+		<Eyebrow title="Who we work with" />
+		<h2 class="mb-10 font-headings text-3xl font-semibold leading-tight text-neutral-700 lg:text-4xl">
+			Four applications, one discipline: the grid.
+		</h2>
+		<div class="grid overflow-hidden rounded-xl border border-neutral-200 md:grid-cols-2">
+			{
+				apps.map((a, i) => (
+					<div
+						class:list={[
+							'border-neutral-200 p-8',
+							i < 2 && 'md:border-b',
+							i % 2 === 0 && 'md:border-r',
+							i < 3 && 'border-b md:border-b-0',
+							i < 2 && 'md:!border-b'
+						]}
+					>
+						<p class="mb-3 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-primary-500">
+							{a.tag}
+						</p>
+						<h3 class="mb-2 font-headings text-lg font-semibold text-neutral-800">{a.title}</h3>
+						<p class="text-sm italic leading-relaxed text-neutral-500">{a.q}</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</Section>

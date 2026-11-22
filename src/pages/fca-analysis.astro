@@ -1,0 +1,152 @@
+---
+// FCA Analysis — commercial-intent landing page for Revolt's FCA / connection-offer work
+import Layout from '../layouts/Layout.astro'
+import Section from '../components/ui/Section.astro'
+import Eyebrow from '../components/ui/Eyebrow.astro'
+import Button from '../components/ui/Button.astro'
+import CTA from '../components/blocks/homepage/CTA.astro'
+import { Icon } from 'astro-icon/components'
+
+const SEO = {
+	title: 'FCA Analysis for Battery Storage in Germany | Revolt Energy',
+	description:
+		'Independent assessment of flexible connection agreements (FCA) and grid connection offers for BESS in Germany: clause review, curtailment forecasting and revenue impact — before you sign.'
+}
+
+const work = [
+	{
+		icon: 'document-check',
+		title: 'Connection offer & FCA review',
+		text: 'Clause-by-clause assessment of your draft agreement and its annexes: operating limits, termination, penalties, balancing-market access, metering, construction cost contribution. Every finding is mapped to its operational consequence — not a legal memo, a business reading.'
+	},
+	{
+		icon: 'chart-bar',
+		title: 'Curtailment forecast & revenue impact',
+		text: 'We translate the agreement’s limitation rules into an hour-by-hour operating envelope for your battery, then model what the restrictions do to trading revenues — day-ahead, intraday and balancing — against a firm connection as the benchmark.'
+	},
+	{
+		icon: 'adjustments',
+		title: 'Variant & option assessment',
+		text: 'Firm-capacity options, co-location (Überbauung) structures, alternative connection points or phased capacity: we quantify each variant so the decision is a number, not a feeling.'
+	},
+	{
+		icon: 'chat-bubble-left-right',
+		title: 'Input for operator discussions',
+		text: 'A prioritised list of the provisions worth raising with the grid operator — with the argument and the benchmark for each. The decision stays yours; the preparation is ours.'
+	}
+]
+
+const questions = [
+	['Will the project still finance?', 'Termination rights, uncapped penalty clauses and revocable balancing-market permissions are what lenders ask about first. We flag them and quantify what can be quantified.'],
+	['How many cycles can the battery actually run?', 'Limitation curves and night windows decide whether your second daily cycle exists. We compute it from the published rules, not from intuition.'],
+	['Which revenues survive?', 'FCA terms commonly restrict balancing-market participation and intraday re-trading in stress hours. We model the revenue stack the contract actually permits.'],
+	['Is the flexible offer better than waiting for firm?', 'Sooner-but-limited vs later-but-firm is a modelling question. We put numbers on both sides, including firm-capacity options where offered.']
+]
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Section id="fca-hero" mode="light" surfaceColor classes="!pb-12">
+		<div class="mx-auto max-w-4xl py-10 lg:py-16">
+			<Eyebrow title="FCA Analysis · Germany" />
+			<h1 class="mb-7 font-headings text-3xl font-semibold leading-tight text-neutral-800 lg:text-4xl">
+				Your grid connection offer, <span class="marker-highlight">translated into numbers</span>.
+			</h1>
+			<p class="mb-4 max-w-2xl text-lg leading-relaxed text-neutral-600">
+				A flexible connection agreement (FCA) connects your battery sooner — in exchange for
+				operating limits that change revenues, bankability and trading strategy. The limits are
+				contractual, so curtailment under them is not compensated.
+			</p>
+			<p class="mb-9 max-w-2xl text-lg leading-relaxed text-neutral-600">
+				Revolt assesses the draft independently: what the clauses mean in operation, and what they
+				cost in euros.
+			</p>
+			<div class="flex flex-wrap gap-4">
+				<Button size="lg" link="/contact" style="accent-light">Request an analysis</Button>
+				<Button variation="link" style="neutral" size="lg" link="https://cal.com/revoltenergy/introcall">
+					<span
+						class="flex items-center border-b-2 border-neutral-500 px-0.5 pb-1 font-bold uppercase transition-colors duration-200 hover:text-primary-700"
+					>
+						Book a preliminary call
+						<Icon name="arrow-right" class="ml-2" />
+					</span>
+				</Button>
+			</div>
+		</div>
+	</Section>
+
+	<Section id="fca-work" mode="light" classes="!bg-white">
+		<div class="mx-auto max-w-5xl">
+			<Eyebrow title="What we do" />
+			<h2 class="mb-10 font-headings text-3xl font-semibold leading-tight text-neutral-700 lg:text-4xl">
+				From contract language to operating reality.
+			</h2>
+			<div class="grid gap-6 md:grid-cols-2">
+				{
+					work.map((w) => (
+						<div class="rounded-xl border border-neutral-200 p-8">
+							<h3 class="mb-3 font-headings text-lg font-semibold text-neutral-800">{w.title}</h3>
+							<p class="text-[15px] leading-relaxed text-neutral-600">{w.text}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</Section>
+
+	<Section id="fca-questions" mode="light" surfaceColor>
+		<div class="mx-auto max-w-5xl">
+			<Eyebrow title="The questions we answer" />
+			<h2 class="mb-10 font-headings text-3xl font-semibold leading-tight text-neutral-700 lg:text-4xl">
+				What a developer actually needs to know before signing.
+			</h2>
+			<div class="divide-y divide-neutral-200 border-t border-neutral-200">
+				{
+					questions.map(([q, a]) => (
+						<div class="grid gap-3 py-7 md:grid-cols-[1fr_1.4fr] md:gap-10">
+							<h3 class="font-headings text-lg font-semibold text-neutral-800">{q}</h3>
+							<p class="text-[15px] leading-relaxed text-neutral-600">{a}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</Section>
+
+	<section class="bg-surface-950 py-16 text-white">
+		<div class="container mx-auto max-w-5xl px-6">
+			<div class="grid items-center gap-10 lg:grid-cols-[1.2fr_1fr]">
+				<div>
+					<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-200">
+						Why Revolt
+					</p>
+					<h2 class="mb-5 font-headings text-2xl font-semibold leading-tight text-white lg:text-3xl">
+						Built on the full set of published FCA terms — and on delivered reviews.
+					</h2>
+					<p class="max-w-xl leading-relaxed text-surface-300">
+						We maintain a document base of the FCA templates and operating annexes German grid
+						operators publish, and we have delivered connection-agreement assessments for operating
+						BESS clients. Findings come with source references and evidence labels — confirmed,
+						modelled, or not available. Never a guess presented as a fact.
+					</p>
+				</div>
+				<ul class="space-y-4 text-[15px] text-surface-200">
+					<li class="rounded-lg border border-surface-800 p-4">Independent — we sell analysis, not projects or transactions.</li>
+					<li class="rounded-lg border border-surface-800 p-4">Quantified — restrictions become euro and cycle numbers, not adjectives.</li>
+					<li class="rounded-lg border border-surface-800 p-4">Audit-defensible — every figure carries its source and evidence class.</li>
+				</ul>
+			</div>
+			<p class="mt-10 text-xs leading-relaxed text-surface-400">
+				The FCA analysis is an independent technical and commercial assessment. It is not legal, tax
+				or financing advice and does not replace a legal review of the agreement.
+			</p>
+		</div>
+	</section>
+
+	<CTA
+		title="A draft FCA on the table?"
+		text="Send the draft and its annexes — we scope the analysis in a short call and deliver a working paper plus a results discussion."
+		buttonText="REQUEST AN ANALYSIS"
+		secondaryButtonText="Book a preliminary call"
+		secondaryButtonLink="https://cal.com/revoltenergy/introcall"
+	/>
+</Layout>

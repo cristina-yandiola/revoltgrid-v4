@@ -1,0 +1,74 @@
+---
+// FCA advisory band — dark petrol register (used ONCE on the page), report-excerpt proof
+import Button from '../../ui/Button.astro'
+import { Icon } from 'astro-icon/components'
+---
+
+<section id="fca-band" class="bg-surface-950 py-20 text-white lg:py-24">
+	<div class="container mx-auto grid max-w-6xl items-center gap-14 px-6 lg:grid-cols-2">
+		<div>
+			<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-200">
+				FCA & connection-offer analysis
+			</p>
+			<h2 class="mb-6 font-headings text-3xl font-semibold leading-tight text-white lg:text-4xl">
+				Flexible connection on the table? Know what it costs before you sign.
+			</h2>
+			<p class="mb-8 max-w-xl text-lg leading-relaxed text-surface-300">
+				Flexible connection agreements get projects connected sooner — and quietly reshape the
+				business case. We translate the terms into operating and revenue consequences, with sourced
+				figures and modelled impacts marked as modelled.
+			</p>
+			<div class="flex flex-wrap items-center gap-5">
+				<Button size="lg" link="/fca-analysis" style="accent-light">Explore FCA Analysis</Button>
+				<a
+					href="https://cal.com/revoltenergy/introcall"
+					class="flex items-center font-bold uppercase text-primary-200 transition-colors hover:text-white"
+				>
+					Book a call
+					<Icon name="arrow-right" class="ml-2" />
+				</a>
+			</div>
+		</div>
+		<div class="justify-self-center lg:justify-self-end">
+			<div class="w-full max-w-md overflow-hidden rounded-lg bg-white text-neutral-800 shadow-2xl">
+				<div class="bg-primary-500 px-5 py-2.5 text-xs font-semibold tracking-wide text-white">
+					Grid Connection Review — excerpt
+				</div>
+				<div class="px-6 py-5 text-sm">
+					<h3 class="mb-1 font-headings text-sm font-semibold">
+						Dispatch constraints under the draft FCA
+					</h3>
+					<p class="mb-4 text-xs text-neutral-400">Illustrative excerpt · not a client document</p>
+					<table class="w-full border-collapse text-[13px]">
+						<tr class="border-t border-neutral-100">
+							<td class="py-2.5 pr-2">
+								Curtailment band, uncompensated<br />
+								<span class="text-[11px] font-semibold tracking-wide text-primary-600">modelled</span>
+							</td>
+							<td class="py-2.5 text-right font-semibold tabular-nums">−€0.2–0.5M / yr</td>
+						</tr>
+						<tr class="border-t border-neutral-100">
+							<td class="py-2.5 pr-2">
+								Ramp limit at connection point<br />
+								<span class="text-[11px] font-semibold tracking-wide text-primary-600"
+									>confirmed · §7</span
+								>
+							</td>
+							<td class="py-2.5 text-right">constrains intraday switching</td>
+						</tr>
+						<tr class="border-t border-neutral-100">
+							<td class="py-2.5 pr-2">
+								Firm-capacity option<br />
+								<span class="text-[11px] font-semibold tracking-wide text-primary-600">modelled</span>
+							</td>
+							<td class="py-2.5 text-right">payback 3–5 yrs</td>
+						</tr>
+					</table>
+					<p class="mt-4 text-[11px] text-neutral-400">
+						Source line on every figure · confirmed / modelled / not available
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
