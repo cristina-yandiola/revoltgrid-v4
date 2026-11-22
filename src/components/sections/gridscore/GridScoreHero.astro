@@ -1,0 +1,42 @@
+---
+import Section from '../../ui/Section.astro'
+import Col from '../../../components/ui/Col.astro'
+import Row from '../../../components/ui/Row.astro'
+import Button from '../../ui/Button.astro'
+import { Icon } from 'astro-icon/components'
+---
+
+<Section id="gridscore-hero" mode="light" surfaceColor classes="min-h-[600px]">
+	<Row classes="items-center gap-y-12">
+		<Col span="6" classes="relative z-10">
+			<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+				GridScore™ · Grid Intelligence Workspace
+			</p>
+			<h1 class="mb-6 font-headings text-3xl font-bold leading-tight lg:text-4xl">
+				Find better <span class="marker-highlight">grid connection</span> opportunities. Faster.
+			</h1>
+			<p class="mb-10 max-w-xl text-lg leading-relaxed text-neutral-600 dark:text-neutral-400">
+				Screen, compare and prioritize BESS development sites across Germany — grid constraints,
+				curtailment exposure, network build-out and connection timing in one workspace.
+			</p>
+			<div class="flex flex-wrap items-center gap-6">
+				<Button size="lg" link="/contact" style="accent-light">Book a demo</Button>
+				<Button variation="link" style="neutral" size="lg" link="#gridscore-capabilities">
+					<span
+						class="flex items-center border-b-2 border-neutral-500 px-0.5 pb-1 font-bold uppercase transition-colors duration-200 hover:text-primary-700"
+					>
+						See what's inside
+						<Icon name="arrow-right" class="ml-2" />
+					</span>
+				</Button>
+			</div>
+		</Col>
+		<Col span="6" classes="lg:col-start-7">
+			<img
+				src="/images/product/mockups/person-workspace.jpg"
+				alt="Analyst reviewing the Revolt Grid Workspace map of the German grid"
+				class="w-full rounded-lg object-cover shadow-lg"
+			/>
+		</Col>
+	</Row>
+</Section>

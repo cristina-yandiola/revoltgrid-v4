@@ -1,0 +1,17 @@
+{
+	"compatibility_date": "2026-03-17",
+	"compatibility_flags": ["global_fetch_strictly_public", "nodejs_compat"],
+	"name": "revolt-website",
+	"main": "@astrojs/cloudflare/entrypoints/server",
+	"assets": {
+		"directory": "./dist",
+		"binding": "ASSETS"
+	},
+	"observability": {
+		"enabled": true
+	},
+  "vars": {
+    "SITE": "https://revolt-website.bachacode.workers.dev",
+    "PUBLIC_GA_TRACKING_ID": ""
+  }
+}

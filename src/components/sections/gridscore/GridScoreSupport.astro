@@ -1,0 +1,69 @@
+---
+// Beyond the score — advisory cross-sell, numbered-card format
+import Section from '../../ui/Section.astro'
+import Col from '../../ui/Col.astro'
+import Row from '../../ui/Row.astro'
+import { Icon } from 'astro-icon/components'
+
+const supportItems = [
+	{
+		number: '1',
+		title: 'Grid risk assessment',
+		text: 'Independent, project-specific analysis of congestion, curtailment and network constraints affecting a site.'
+	},
+	{
+		number: '2',
+		title: 'Connection strategy & process support',
+		text: 'Guidance through TSO and DSO application processes, Reifegradverfahren and connection negotiations.'
+	},
+	{
+		number: '3',
+		title: 'Acquisition & pipeline screening',
+		text: 'Early-stage support for project selection, portfolio prioritization, and grid-related development risk.'
+	}
+]
+---
+
+<Section id="gridscore-support" mode="light" classes="!bg-white">
+	<Row classes="mb-12 text-center">
+		<Col span="8" classes="lg:col-start-3">
+			<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+				Beyond the Score
+			</p>
+			<h2 class="mb-6 font-headings text-3xl font-bold leading-tight lg:text-4xl">
+				When a project needs more than a score
+			</h2>
+			<p class="mx-auto max-w-2xl text-lg leading-relaxed text-neutral-600">
+				GridScore supports screening and prioritization. For investment decisions, project-specific
+				assessments or complex connection questions, Revolt provides independent analysis and
+				specialist grid advisory.
+			</p>
+		</Col>
+	</Row>
+	<Row classes="gap-y-6">
+		{
+			supportItems.map((item) => (
+				<Col span="4">
+					<div class="h-full rounded-lg border-2 border-neutral-200 bg-white p-8">
+						<div class="mb-6 flex h-10 w-10 items-center justify-center rounded bg-primary-500 font-mono text-sm font-bold text-white">
+							{item.number}
+						</div>
+						<h3 class="mb-4 font-headings text-xl font-bold">{item.title}</h3>
+						<p class="leading-relaxed text-neutral-600 dark:text-neutral-400">{item.text}</p>
+					</div>
+				</Col>
+			))
+		}
+	</Row>
+	<Row classes="mt-10">
+		<Col span="12" classes="text-center">
+			<a
+				href="/grid-strategy"
+				class="inline-flex items-center font-bold uppercase tracking-wide text-neutral-800 transition-colors duration-200 hover:text-primary-700"
+			>
+				Explore Grid Advisory
+				<Icon name="arrow-right" class="ml-2" />
+			</a>
+		</Col>
+	</Row>
+</Section>

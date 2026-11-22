@@ -1,0 +1,52 @@
+---
+// CTA Section
+// ------------
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Button from '../../ui/Button.astro'
+
+interface Props {
+	title?: string
+	text?: string
+	buttonText?: string
+	buttonLink?: string
+	secondaryButtonText?: string
+	secondaryButtonLink?: string
+	classes?: string
+}
+
+const {
+	title = 'Make your next grid connection decision with better intelligence.',
+	text = 'See GridScore on your own development pipeline, or discuss a project-specific grid assessment.',
+	buttonText = 'Book a demo',
+	buttonLink = '/contact',
+	secondaryButtonText,
+	secondaryButtonLink,
+	classes
+} = Astro.props
+---
+
+<Section id="cta" mode="light" surfaceColor classes={classes}>
+	<Row classes="justify-center text-center">
+		<Col span="8" classes="lg:col-start-3">
+			<h2
+				class="mx-auto mb-6 max-w-4xl font-headings text-4xl font-bold leading-tight lg:text-4xl"
+				set:html={title}
+			/>
+			<p class="mx-auto mb-10 max-w-2xl text-lg leading-relaxed" set:html={text} />
+			<div class="flex flex-col items-center justify-center gap-8 sm:flex-row">
+				<Button size="lg" style="accent-light" link={buttonLink}>
+					{buttonText}
+				</Button>
+				{
+					secondaryButtonText && secondaryButtonLink && (
+						<Button size="lg" style="neutral" variation="outline" link={secondaryButtonLink}>
+							{secondaryButtonText}
+						</Button>
+					)
+				}
+			</div>
+		</Col>
+	</Row>
+</Section>

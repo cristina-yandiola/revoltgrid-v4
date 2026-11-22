@@ -1,0 +1,96 @@
+---
+// Blog article page
+// ------------
+import Layout from '../../layouts/Layout.astro'
+import Section from '../../components/ui/Section.astro'
+import Eyebrow from '../../components/ui/Eyebrow.astro'
+import CTA from '../../components/blocks/homepage/CTA.astro'
+import { getCollection, render } from 'astro:content'
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog', ({ data }) => !data.draft)
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: { post }
+	}))
+}
+
+const { post } = Astro.props
+const { Content } = await render(post)
+
+const formatDate = (date: Date) =>
+	date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+
+const canonicalURL = new URL(`/blog/${post.id}/`, Astro.site)
+
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: post.data.title,
+	description: post.data.description,
+	datePublished: post.data.pubDate.toISOString(),
+	author: { '@type': 'Organization', name: post.data.author },
+	publisher: { '@type': 'Organization', name: 'Revolt Energy', url: 'https://revoltgrid.de' },
+	mainEntityOfPage: canonicalURL.toString(),
+	...(post.data.heroImage
+		? { image: new URL(post.data.heroImage, Astro.site).toString() }
+		: {})
+}
+---
+
+<Layout title={`${post.data.title} | Revolt Energy`} description={post.data.description}>
+	<link rel="canonical" href={canonicalURL} slot="head" />
+	<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="head" />
+	<Section id="article" mode="light" surfaceColor>
+		<article class="mx-auto max-w-3xl">
+			<header class="mb-10">
+				<Eyebrow title={`${post.data.category} · ${formatDate(post.data.pubDate)}`} />
+				<h1
+					class="mb-0 font-headings text-3xl font-bold leading-tight text-neutral-800 lg:text-4xl"
+				>
+					{post.data.title}
+				</h1>
+			</header>
+			<div class="basic-text basic-text--lg article-body">
+				<Content />
+			</div>
+		</article>
+	</Section>
+	<CTA />
+</Layout>
+
+<style is:global>
+	/* Article typography — headings scaled for reading, not landing pages */
+	.article-body h2 {
+		font-size: 1.375rem;
+		line-height: 1.35;
+		margin-top: 3rem !important;
+		margin-bottom: 1rem;
+	}
+	.article-body h3 {
+		font-size: 1.125rem;
+		line-height: 1.4;
+		margin-top: 2rem !important;
+		margin-bottom: 0.75rem;
+	}
+	@media (min-width: 1024px) {
+		.article-body h2 {
+			font-size: 1.5rem;
+		}
+		.article-body h3 {
+			font-size: 1.25rem;
+		}
+	}
+
+	/* Article images: product mockup photos, presented simply */
+	.article-body p:has(> img) {
+		margin: 2.75rem 0 3rem !important;
+	}
+	.article-body p:has(> img) img {
+		border-radius: 8px !important;
+		border: none !important;
+		margin: 0 !important;
+		width: 100%;
+		box-shadow: 0 16px 32px -14px rgba(28, 32, 34, 0.25);
+	}
+</style>

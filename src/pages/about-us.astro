@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro'
+import CTA from '../components/blocks/homepage/CTA.astro'
+import Hero from '../components/sections/about-us/Hero.astro'
+import Expertise from '../components/sections/about-us/Expertise.astro'
+import Bess from '../components/sections/about-us/Bess.astro'
+import BlogStrip from '../components/blocks/homepage/BlogStrip.astro'
+
+const SEO = {
+	title: 'About Us | Revolt Energy',
+	description:
+		'Revolt is the technical anchor for energy investors, providing the data and strategic engagement necessary for successful grid connection in Germany’s evolving landscape.'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Expertise />
+	<Bess />
+	<BlogStrip />
+	<CTA
+		title="Understand the grid dynamics shaping your project."
+		text="Discuss your project, pipeline, or grid-access strategy with Revolt."
+		buttonText="BOOK A CALL"
+		buttonLink="https://cal.com/revoltenergy/introcall"
+		classes="!bg-surface-50"
+	/>
+</Layout>

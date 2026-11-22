@@ -1,0 +1,30 @@
+---
+// Components
+// - Layout
+import Layout from '../layouts/Layout.astro'
+// - Blocks
+import Hero from '../components/blocks/homepage/Hero.astro'
+import TwoWays from '../components/blocks/homepage/TwoWays.astro'
+import WhyGridData from '../components/blocks/homepage/WhyGridData.astro'
+import BlogStrip from '../components/blocks/homepage/BlogStrip.astro'
+import CTA from '../components/blocks/homepage/CTA.astro'
+
+// Content
+// - SEO
+const SEO = {
+	title: 'Revolt Energy | Grid intelligence & advisory for BESS in Germany',
+	description:
+		'Revolt combines GridScore™ grid intelligence software and specialist advisory to help BESS developers and investors in Germany find better grid connection opportunities, faster.'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Hero />
+	<TwoWays />
+	<WhyGridData />
+	<BlogStrip />
+	<CTA
+		secondaryButtonText="Discuss a grid assessment"
+		secondaryButtonLink="/contact"
+	/>
+</Layout>

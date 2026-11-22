@@ -1,0 +1,75 @@
+---
+// SEO Component
+// ------------
+// Description: A component to add SEO meta tags to the page.
+// Properties:
+// - title: The page title
+// - description: The page description
+// - ogImage: The page image for Open Graph
+// - canonical: Whether to use the canonical URL
+// - noindex: Whether to add noindex and nofollow meta tags
+
+// Props
+type Props = {
+	title?: string
+	description?: string
+	ogImage?: string
+	canonical?: boolean
+	noindex?: boolean
+}
+
+const { title, description, ogImage, canonical, noindex } = Astro.props
+
+// og:image must be an absolute URL for scrapers (LinkedIn/WhatsApp/Slack)
+const ogImageAbs = ogImage ? new URL(ogImage, Astro.site ?? Astro.url).href : undefined
+
+const orgSchema = JSON.stringify({
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'Organization',
+			'@id': 'https://revoltgrid.de/#organization',
+			name: 'Revolt Energy',
+			url: 'https://revoltgrid.de/',
+			logo: 'https://revoltgrid.de/og.jpg',
+			description:
+				'Grid intelligence software (GridScore™) and specialist grid advisory for BESS developers and investors in Germany: substation ranking, congestion and curtailment exposure, FCA and grid connection assessments.',
+			areaServed: 'Germany',
+			knowsAbout: [
+				'battery energy storage systems',
+				'grid connection',
+				'flexible connection agreements (FCA)',
+				'redispatch and curtailment',
+				'German transmission and distribution grids'
+			]
+		},
+		{
+			'@type': 'WebSite',
+			'@id': 'https://revoltgrid.de/#website',
+			url: 'https://revoltgrid.de/',
+			name: 'Revolt Energy',
+			publisher: { '@id': 'https://revoltgrid.de/#organization' },
+			inLanguage: 'en'
+		}
+	]
+})
+---
+
+<Fragment>
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={Astro.url} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:image" content={ogImageAbs} />
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content={Astro.url} />
+	<meta property="twitter:title" content={title} />
+	<meta property="twitter:description" content={description} />
+	<meta property="twitter:image" content={ogImageAbs} />
+	<script type="application/ld+json" set:html={orgSchema} />
+	<link rel="canonical" href={Astro.url} />
+	{canonical && <link rel="canonical" href={Astro.url} item-prop="url" />}
+	{noindex && <meta name="robots" content="noindex,nofollow" />}
+</Fragment>

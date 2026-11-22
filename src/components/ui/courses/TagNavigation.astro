@@ -1,0 +1,40 @@
+---
+// Tags for the course pages
+
+// Components
+// - UI
+import Badge from '../Badge.astro'
+
+//Data
+import { getCollection } from 'astro:content'
+const courses = await getCollection('courses')
+const tags = [...new Set(courses.map((course) => course.data.tags).flat())]
+const currentPath = new URL(Astro.request.url).pathname
+const pathSegments = currentPath.split('/').filter((segment) => segment.length > 0)
+const currentTag = pathSegments[pathSegments.length - 1] || ''
+---
+
+<div class="tags filter-controls">
+	<Badge
+		filter="all"
+		name="All"
+		type={`${currentTag === 'courses' ? 'primary' : 'neutral'}`}
+		classes="filter-btn"
+	/>
+	{
+		tags.map((tag) => (
+			<Badge
+				filter={tag}
+				name={tag}
+				type={`${currentTag === tag ? 'primary' : 'neutral'}`}
+				classes="filter-btn"
+			/>
+		))
+	}
+</div>
+
+<style>
+	.tags {
+		@apply mb-6 flex flex-row flex-wrap items-center justify-start gap-2 capitalize;
+	}
+</style>

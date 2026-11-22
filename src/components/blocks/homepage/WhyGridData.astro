@@ -1,0 +1,48 @@
+---
+// Why grid data matters now — text left, bullets right, no image
+import Section from '../../ui/Section.astro'
+import Col from '../../ui/Col.astro'
+import Row from '../../ui/Row.astro'
+import { Icon } from 'astro-icon/components'
+
+const bullets = [
+	'Mitigate grid connection risk',
+	'Evaluate regional grid constraints',
+	'Prioritize stronger connection sites',
+	'Achieve better grid conditions'
+]
+---
+
+<Section id="why-grid-data" mode="light" classes="!bg-white">
+	<Row classes="items-center gap-y-10">
+		<Col span="6" classes="relative z-10">
+			<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+				Strategic Context
+			</p>
+			<h2 class="mb-8 font-headings text-3xl font-bold leading-tight lg:text-4xl">
+				Why grid data matters now
+			</h2>
+			<p class="mb-6 leading-relaxed text-neutral-600 dark:text-neutral-400">
+				As grid connection queues increase across Germany, project viability depends more than ever
+				on understanding congestion exposure, network constraints, and regional capacity dynamics
+				before capital is deployed.
+			</p>
+			<p class="mb-0 leading-relaxed text-neutral-600 dark:text-neutral-400">
+				GridScore supports developers and investors with structured grid intelligence to improve
+				siting decisions, prioritise development resources, and reduce hidden connection risk.
+			</p>
+		</Col>
+		<Col span="5" classes="lg:col-start-8">
+			<ul class="space-y-5">
+				{
+					bullets.map((bullet) => (
+						<li class="flex items-center gap-3 font-semibold text-neutral-700 dark:text-neutral-200">
+							<Icon name="check-circle" class="h-5 w-5 shrink-0 text-primary-500" />
+							{bullet}
+						</li>
+					))
+				}
+			</ul>
+		</Col>
+	</Row>
+</Section>

@@ -1,0 +1,59 @@
+---
+// What you can do with GridScore — capability list + real dashboard screenshot (framed, not cropped)
+import Section from '../../ui/Section.astro'
+import Col from '../../ui/Col.astro'
+import Row from '../../ui/Row.astro'
+
+const capabilities = [
+	{
+		title: 'Identify and compare connection opportunities',
+		text: 'Explore substations across Germany, assess available grid capacity indicators and compare potential connection locations.'
+	},
+	{
+		title: 'Understand grid congestion and curtailment exposure',
+		text: 'Review historical congestion and redispatch patterns to identify network constraints that may affect project performance.'
+	},
+	{
+		title: 'Track grid expansion plans and timelines',
+		text: "Explore planned network reinforcements, including relevant measures from Germany's Network Development Plan (NEP)."
+	},
+	{
+		title: 'Prioritize your development pipeline',
+		text: "Compare substations using GridScore's scoring and track candidate sites through the connection process."
+	}
+]
+---
+
+<Section id="gridscore-capabilities" mode="light" surfaceColor>
+	<Row classes="gap-y-12">
+		<Col span="5" classes="relative z-10">
+			<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+				What you can do
+			</p>
+			<h2 class="mb-8 font-headings text-3xl font-bold leading-tight lg:text-4xl">
+				From grid data to<br />
+				better <span class="marker-highlight">project decisions</span>
+			</h2>
+			<div class="space-y-6">
+				{
+					capabilities.map((item) => (
+						<div>
+							<h3 class="mb-1 text-lg font-bold text-neutral-700">{item.title}</h3>
+							<p class="leading-relaxed text-neutral-600 dark:text-neutral-400">{item.text}</p>
+						</div>
+					))
+				}
+			</div>
+		</Col>
+		<Col span="6" classes="lg:col-start-7">
+			<figure class="h-full w-full lg:relative">
+				<img
+					src="/images/product/mockups/laptop-dash-v2.jpg"
+					alt="Laptop running the Revolt Grid Workspace portfolio dashboard"
+					class="w-full rounded-lg shadow-lg lg:absolute lg:bottom-0 lg:left-0 lg:h-full lg:w-[calc(100%+200px)] lg:max-w-none lg:object-contain lg:object-left-bottom"
+					loading="lazy"
+				/>
+			</figure>
+		</Col>
+	</Row>
+</Section>

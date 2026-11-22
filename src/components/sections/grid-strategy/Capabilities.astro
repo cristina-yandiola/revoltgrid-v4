@@ -1,0 +1,51 @@
+---
+import SectionWithImage from '../../../components/ui/SectionWithImage.astro'
+import pylons from '../../../assets/powerlines-3.jpg'
+import Col from '../../../components/ui/Col.astro'
+import Row from '../../../components/ui/Row.astro'
+import { Icon } from 'astro-icon/components'
+
+const capabilities = [
+	{
+		text: 'Grid risk assessment: project-specific analysis of connection risk, network constraints, congestion and curtailment exposure.',
+		icon: 'shield-check'
+	},
+	{
+		text: 'Revenue impact of grid conditions: curtailment and dispatch-constraint effects quantified under base and downside scenarios.',
+		icon: 'file-chart-column-increasing'
+	},
+	{
+		text: 'Due diligence on grid connections: independent review of connection status, conditions and technical assumptions for acquisitions and investment decisions.',
+		icon: 'scale'
+	},
+	{
+		text: 'Strategic guidance on grid applications, connection pathways, and evolving TSO/DSO frameworks.',
+		icon: 'arrow-trending-up'
+	}
+]
+---
+
+<SectionWithImage id="strategy-scope" mode="light" image={pylons} reverse>
+	<Row>
+		<Col span="12" classes="relative z-10 flex flex-col justify-center lg:pl-12 py-10 lg:py-14">
+			<p class="mb-4 font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary-500">
+				Capabilities
+			</p>
+			<h2 class="mb-6 max-w-xl font-headings text-3xl font-bold leading-tight lg:text-4xl">
+				Scope of services
+			</h2>
+			<ul class="space-y-8">
+				{
+					capabilities.map((point) => (
+						<li class="flex items-center gap-6">
+							<Icon name={point.icon} class="h-8 w-8 shrink-0 text-primary-700 lg:-ml-8" />
+							<div>
+								<h3 class="text-base text-neutral-600">{point.text}</h3>
+							</div>
+						</li>
+					))
+				}
+			</ul>
+		</Col>
+	</Row>
+</SectionWithImage>

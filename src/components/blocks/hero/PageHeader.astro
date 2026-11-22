@@ -1,0 +1,36 @@
+---
+// Page Header Section
+// ------------
+// Description: The basic page header.
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+
+// Props
+type Props = {
+	id?: string
+	title?: string
+	text?: string
+	classes?: string
+}
+const { id = 'intro', title, text, classes } = Astro.props
+---
+
+<Section id={id} padding="none" classes=`bg-surface-50 px-3 ${classes}`>
+	<div class="relative flex flex-col items-center py-16 text-center">
+		<h1 set:html={title} />
+		<header class="page-header">
+			<p class="page-header__text" set:html={text} />
+		</header>
+	</div>
+</Section>
+
+<style>
+	.page-header {
+		@apply mx-auto max-w-3xl;
+	}
+	.page-header__text {
+		@apply text-lg leading-relaxed;
+	}
+</style>
