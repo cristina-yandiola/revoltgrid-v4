@@ -42,7 +42,8 @@ export const navigationBarData: NavData = {
 		{ name: 'GridScore', link: '/gridscore' },
 		{ name: 'FCA Analysis', link: '/fca-analysis' },
 		{ name: 'Advisory', link: '/grid-strategy' },
-		{ name: 'About us', link: '/about-us' },
+		// hidden for now (too many sections) — restore when wanted:
+		// { name: 'About us', link: '/about-us' },
 		{ name: 'Contact', link: '/contact' }
 	],
 	navActions: [{ name: 'Book a demo', link: '/contact', style: 'accent-light', size: 'base' }]

@@ -64,9 +64,10 @@ export const footerNavigationData: FooterData = {
 					subCategory: 'Blog',
 					subCategoryLink: '/blog'
 				},
+				// { subCategory: 'About us', subCategoryLink: '/about-us' } // hidden for now
 				{
-					subCategory: 'About us',
-					subCategoryLink: '/about-us'
+					subCategory: 'Contact',
+					subCategoryLink: '/contact'
 				}
 			]
 		},

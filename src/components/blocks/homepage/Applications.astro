@@ -5,33 +5,33 @@ import Eyebrow from '../../ui/Eyebrow.astro'
 
 const apps = [
 	{
-		tag: 'Standalone BESS',
-		title: 'Battery storage',
+		tag: 'Storage',
+		title: 'BESS Standalone',
 		q: '“Where should we connect — and how would the offered terms affect dispatch and revenues?”'
 	},
 	{
-		tag: 'Renewables + BESS',
+		tag: 'Renewables / data center + BESS',
 		title: 'Hybrid projects',
-		q: '“How much could a battery change export peaks or curtailment under the proposed connection limit?”'
+		q: '“How much could a battery change export peaks, curtailment or peak import under the proposed connection limit?”'
 	},
 	{
-		tag: 'Data centres',
-		title: 'Large loads',
+		tag: 'Large loads',
+		title: 'Data centers',
 		q: '“Which sites warrant deeper investigation, given import needs, connection timelines and load ramp-up?”'
 	},
 	{
-		tag: 'Data centres + BESS',
-		title: 'Load + storage',
-		q: '“Could storage reduce peak import or support a phased connection — and how much firm capacity do we still need?”'
+		tag: 'Wind / solar / biomass',
+		title: 'Renewables',
+		q: '“Where can our project still connect — and how much curtailment should we price in?”'
 	}
 ]
 ---
 
 <Section id="applications" mode="light" classes="!bg-white">
 	<div class="mx-auto max-w-5xl">
-		<Eyebrow title="Who we work with" />
+		<Eyebrow title="We support any grid application" />
 		<h2 class="mb-10 font-headings text-3xl font-semibold leading-tight text-neutral-700 lg:text-4xl">
-			Four applications, one discipline: the grid.
+			Who we work with
 		</h2>
 		<div class="grid overflow-hidden rounded-xl border border-neutral-200 md:grid-cols-2">
 			{
