@@ -5,6 +5,7 @@ import Section from '../components/ui/Section.astro'
 import Eyebrow from '../components/ui/Eyebrow.astro'
 import Button from '../components/ui/Button.astro'
 import CTA from '../components/blocks/homepage/CTA.astro'
+import ReportMock from '../components/sections/fca/ReportMock.astro'
 import { Icon } from 'astro-icon/components'
 
 const SEO = {
@@ -46,7 +47,8 @@ const questions = [
 
 <Layout title={SEO.title} description={SEO.description}>
 	<Section id="fca-hero" mode="light" surfaceColor classes="!pb-12">
-		<div class="mx-auto max-w-4xl py-10 lg:py-16">
+		<div class="mx-auto grid max-w-6xl items-center gap-14 py-10 lg:grid-cols-[1.15fr_0.85fr] lg:py-16">
+		<div>
 			<Eyebrow title="FCA Analysis · Germany" />
 			<h1 class="mb-7 font-headings text-3xl font-semibold leading-tight text-neutral-800 lg:text-4xl">
 				Your grid connection offer, <span class="marker-highlight">translated into numbers</span>.
@@ -71,6 +73,10 @@ const questions = [
 					</span>
 				</Button>
 			</div>
+		</div>
+		<div class="hidden lg:block">
+			<ReportMock />
+		</div>
 		</div>
 	</Section>
 

@@ -30,44 +30,45 @@ import { Icon } from 'astro-icon/components'
 			</div>
 		</div>
 		<div class="justify-self-center lg:justify-self-end">
-			<div class="w-full max-w-md overflow-hidden rounded-lg bg-white text-neutral-800 shadow-2xl">
-				<div class="bg-primary-500 px-5 py-2.5 text-xs font-semibold tracking-wide text-white">
-					Grid Connection Review — excerpt
+			<div class="w-full max-w-md rounded-lg bg-white p-6 text-neutral-800 shadow-2xl">
+				<div class="mb-1 flex items-baseline justify-between">
+					<h3 class="font-headings text-sm font-semibold">BESS revenue — firm vs. flexible connection</h3>
+					<span class="text-[10.5px] uppercase tracking-wide text-neutral-400">Illustrative</span>
 				</div>
-				<div class="px-6 py-5 text-sm">
-					<h3 class="mb-1 font-headings text-sm font-semibold">
-						Dispatch constraints under the draft FCA
-					</h3>
-					<p class="mb-4 text-xs text-neutral-400">Illustrative excerpt · not a client document</p>
-					<table class="w-full border-collapse text-[13px]">
-						<tr class="border-t border-neutral-100">
-							<td class="py-2.5 pr-2">
-								Curtailment band, uncompensated<br />
-								<span class="text-[11px] font-semibold tracking-wide text-primary-600">modelled</span>
-							</td>
-							<td class="py-2.5 text-right font-semibold tabular-nums">−€0.2–0.5M / yr</td>
-						</tr>
-						<tr class="border-t border-neutral-100">
-							<td class="py-2.5 pr-2">
-								Ramp limit at connection point<br />
-								<span class="text-[11px] font-semibold tracking-wide text-primary-600"
-									>confirmed · §7</span
-								>
-							</td>
-							<td class="py-2.5 text-right">constrains intraday switching</td>
-						</tr>
-						<tr class="border-t border-neutral-100">
-							<td class="py-2.5 pr-2">
-								Firm-capacity option<br />
-								<span class="text-[11px] font-semibold tracking-wide text-primary-600">modelled</span>
-							</td>
-							<td class="py-2.5 text-right">payback 3–5 yrs</td>
-						</tr>
-					</table>
-					<p class="mt-4 text-[11px] text-neutral-400">
-						Source line on every figure · confirmed / modelled / not available
-					</p>
+				<p class="mb-4 text-xs text-neutral-400">Monthly trading revenue of the same battery</p>
+				<svg viewBox="0 0 400 190" class="w-full" role="img" aria-label="Illustrative chart comparing monthly BESS revenue with a firm connection versus under a flexible connection agreement">
+					<!-- gridlines -->
+					<g stroke="#eef2f1" stroke-width="1">
+						<line x1="0" y1="40" x2="400" y2="40"/><line x1="0" y1="80" x2="400" y2="80"/>
+						<line x1="0" y1="120" x2="400" y2="120"/><line x1="0" y1="160" x2="400" y2="160"/>
+					</g>
+					<!-- firm connection: petrol outline area -->
+					<path d="M0,52 L36,56 L72,50 L108,54 L144,48 L180,52 L216,50 L252,54 L288,50 L324,52 L360,48 L400,46 L400,160 L0,160 Z"
+						fill="#1A7F7A" opacity="0.12"/>
+					<path d="M0,52 L36,56 L72,50 L108,54 L144,48 L180,52 L216,50 L252,54 L288,50 L324,52 L360,48 L400,46"
+						fill="none" stroke="#1A7F7A" stroke-width="2"/>
+					<!-- with FCA: darker fill, summer dip -->
+					<path d="M0,74 L36,80 L72,88 L108,100 L144,116 L180,126 L216,128 L252,118 L288,102 L324,88 L360,78 L400,72 L400,160 L0,160 Z"
+						fill="#0A2628" opacity="0.18"/>
+					<path d="M0,74 L36,80 L72,88 L108,100 L144,116 L180,126 L216,128 L252,118 L288,102 L324,88 L360,78 L400,72"
+						fill="none" stroke="#0A2628" stroke-width="2"/>
+					<!-- gap highlight -->
+					<line x1="216" y1="50" x2="216" y2="128" stroke="#DEFF25" stroke-width="3"/>
+					<text x="224" y="92" font-size="10" fill="#55605f" font-family="ui-sans-serif,system-ui">uncompensated</text>
+					<text x="224" y="104" font-size="10" fill="#55605f" font-family="ui-sans-serif,system-ui">revenue gap</text>
+					<!-- months -->
+					<g font-size="9" fill="#9aa6a2" font-family="ui-sans-serif,system-ui">
+						<text x="2" y="176">Jan</text><text x="100" y="176">Apr</text>
+						<text x="200" y="176">Jul</text><text x="300" y="176">Oct</text><text x="376" y="176">Dec</text>
+					</g>
+				</svg>
+				<div class="mt-3 flex gap-5 text-[11.5px] text-neutral-500">
+					<span class="flex items-center gap-1.5"><span class="inline-block h-[3px] w-4 bg-primary-500"></span> Firm connection</span>
+					<span class="flex items-center gap-1.5"><span class="inline-block h-[3px] w-4 bg-surface-950"></span> Under the FCA rules</span>
 				</div>
+				<p class="mt-3 text-[10.5px] leading-snug text-neutral-400">
+					Illustrative pattern only — no project data. Project-specific impact is what the analysis quantifies.
+				</p>
 			</div>
 		</div>
 	</div>

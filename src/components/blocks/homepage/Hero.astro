@@ -18,26 +18,27 @@ import { Icon } from 'astro-icon/components'
 	imageClasses="grayscale-[0.2] contrast-[1.1] !object-fill"
 >
 	<div class="relative z-10 flex flex-col justify-center">
-		<Eyebrow title="Grid Intelligence · Germany" />
-		<h1 class="mb-8 font-headings text-3xl font-semibold leading-tight lg:text-4xl">
-			Find and assess<br />
-			<span class="marker-highlight">grid connections</span><br />
-			in Germany.
+		<Eyebrow title="Grid Intelligence" />
+		<h1 class="mb-8 font-headings text-3xl font-bold leading-tight lg:text-4xl">
+			Decision-grade<br />
+			<span class="marker-highlight">grid intelligence</span> for<br />
+			energy infrastructure.
 		</h1>
+		<p class="mb-3 max-w-xl text-lg leading-relaxed text-neutral-600">
+			Revolt helps developers and investors prioritize connection opportunities, assess grid-related
+			investment risk, and make faster decisions across BESS, renewables, and data centres.
+		</p>
 		<p class="mb-10 max-w-xl text-lg leading-relaxed text-neutral-600">
-			Compare connection options and understand how grid constraints affect your project. Grid
-			intelligence and independent advisory for battery storage, renewables and data centres —
-			including projects that combine generation or large loads with batteries.
+			Using GridScore™, Revolt quantifies congestion exposure, grid fee risk, and potential revenue
+			loss to help assess project bankability before capital is deployed.
 		</p>
 		<div class="flex flex-wrap gap-4">
-			<Button size="lg" link="https://cal.com/revoltenergy/introcall" style="accent-light">
-				Discuss your project</Button
-			>
-			<Button variation="link" style="neutral" size="lg" link="/gridscore">
+			<Button size="lg" link="/gridscore" style="accent-light"> View GridScore</Button>
+			<Button variation="link" style="neutral" size="lg" link="https://cal.com/revoltenergy/introcall">
 				<span
 					class="flex items-center border-b-2 border-neutral-500 px-0.5 pb-1 font-bold uppercase transition-colors duration-200 hover:text-primary-700"
 				>
-					Explore GridScore
+					Book a Call
 					<Icon name="arrow-right" class="ml-2" />
 				</span>
 			</Button>

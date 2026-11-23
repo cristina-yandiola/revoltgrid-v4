@@ -1,0 +1,105 @@
+---
+// Anonymised report visual — styled like Revolt's grid connection review deliverables.
+// All content is greeked placeholder: no project, no client, no real numbers.
+---
+
+<div class="relative mx-auto w-full max-w-[420px] select-none" aria-hidden="true">
+	<!-- back page -->
+	<div
+		class="absolute left-6 top-6 hidden h-full w-full rotate-[2.5deg] rounded-md bg-white shadow-xl ring-1 ring-neutral-200 sm:block"
+	>
+	</div>
+
+	<!-- front page -->
+	<div class="relative rotate-[-1.5deg] rounded-md bg-white p-7 shadow-2xl ring-1 ring-neutral-200">
+		<!-- header -->
+		<div class="mb-5 flex items-start justify-between">
+			<div>
+				<p class="font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-primary-500">
+					Grid Connection Review
+				</p>
+				<div class="mt-1.5 h-3 w-40 rounded-sm bg-neutral-200"></div>
+				<div class="mt-1.5 h-2 w-24 rounded-sm bg-neutral-100"></div>
+			</div>
+			<div class="flex items-baseline font-headings text-sm font-bold text-neutral-900">
+				Revolt<span class="ml-0.5 inline-block h-1.5 w-1.5 rounded-full bg-accent-400"></span>
+			</div>
+		</div>
+
+		<!-- metric row -->
+		<div class="mb-5 grid grid-cols-3 gap-2">
+			{
+				['Dispatch delta', 'Restricted hours', 'Compensation'].map((m) => (
+					<div class="rounded bg-surface-50 px-2.5 py-2">
+						<div class="h-2.5 w-10 rounded-sm bg-primary-200" />
+						<p class="mt-1.5 text-[8px] leading-tight text-neutral-400">{m}</p>
+					</div>
+				))
+			}
+		</div>
+
+		<!-- mini chart -->
+		<div class="mb-5 rounded border border-neutral-100 p-3">
+			<div class="mb-2 flex items-center justify-between">
+				<div class="h-2 w-28 rounded-sm bg-neutral-200"></div>
+				<span class="text-[8px] uppercase tracking-wide text-neutral-300">modelled</span>
+			</div>
+			<svg viewBox="0 0 320 70" class="w-full">
+				<g stroke="#f1f5f4" stroke-width="1">
+					<line x1="0" y1="18" x2="320" y2="18" /><line x1="0" y1="36" x2="320" y2="36" />
+					<line x1="0" y1="54" x2="320" y2="54" />
+				</g>
+				{
+					Array.from({ length: 16 }).map((_, i) => {
+						const hBase = [38, 42, 35, 45, 40, 48, 44, 50, 46, 42, 38, 44, 48, 40, 36, 42][i]
+						const hFca = [30, 32, 24, 30, 22, 28, 20, 26, 24, 26, 26, 32, 38, 32, 28, 34][i]
+						return (
+							<>
+								<rect x={i * 20 + 2} y={66 - hBase} width="7" height={hBase} fill="#A8D6D5" />
+								<rect x={i * 20 + 10} y={66 - hFca} width="7" height={hFca} fill="#1A7F7A" />
+							</>
+						)
+					})
+				}
+			</svg>
+		</div>
+
+		<!-- findings table -->
+		<div class="overflow-hidden rounded border border-neutral-100">
+			<div class="bg-primary-500 px-3 py-1.5">
+				<div class="h-2 w-32 rounded-sm bg-white/70"></div>
+			</div>
+			{
+				['confirmed', 'modelled', 'confirmed', 'not available'].map((tag, i) => (
+					<div
+						class:list={[
+							'flex items-center justify-between px-3 py-2',
+							i % 2 === 1 && 'bg-surface-50'
+						]}
+					>
+						<div class="space-y-1">
+							<div class:list={['h-2 rounded-sm bg-neutral-200', ['w-36', 'w-28', 'w-32', 'w-24'][i]]} />
+							<div class="h-1.5 w-16 rounded-sm bg-neutral-100" />
+						</div>
+						<span
+							class:list={[
+								'rounded-full px-2 py-0.5 text-[7.5px] font-semibold uppercase tracking-wide',
+								tag === 'modelled'
+									? 'bg-accent-100 text-accent-900'
+									: tag === 'not available'
+										? 'bg-neutral-100 text-neutral-400'
+										: 'bg-primary-50 text-primary-600'
+							]}
+						>
+							{tag}
+						</span>
+					</div>
+				))
+			}
+		</div>
+
+		<p class="mt-4 text-[8px] leading-snug text-neutral-300">
+			Anonymised layout illustration — placeholder content, no client or project data.
+		</p>
+	</div>
+</div>
